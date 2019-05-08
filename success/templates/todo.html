@@ -1,0 +1,17 @@
+<h1>Welcome Again...!!</h1>
+<ul>
+    {% for items in all_item %}
+        <li style="padding: 5px 10px 5px 5px;">{{ items.content }}
+        <form action="/deletetodo/{{items.id}}/" style="display:inline;" method="post">{% csrf_token %}
+            <input type="submit" value="Delete"/>
+        </form></li>
+
+    {% endfor %}
+</ul>
+<form action="/addTodo/" method="post">{% csrf_token %}
+    <input type="text" name="content"/>
+    <input type="submit" value="Add"/>
+
+
+
+</form>
